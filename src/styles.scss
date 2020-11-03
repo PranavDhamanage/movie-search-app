@@ -1,0 +1,160 @@
+@use "sass:map";
+
+$metrics: 1px solid;
+$border: (
+  "app-container": $metrics red,
+  "form-container": $metrics blue,
+);
+
+@mixin nones {
+  border: none;
+  outline: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0em;
+  margin: 0em;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  background-color: rgb(245, 245, 245);
+  font-family: "Roboto", sans-serif;
+}
+
+/*
+==============
+container 
+==============
+*/
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  font-size: 3rem;
+  font-family: "Open Sans", cursive;
+  word-spacing: 10px;
+  margin: {
+    top: 0em;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 95%;
+}
+
+/*
+==============
+typography 
+==============
+*/
+.query-input {
+  @include nones();
+  font-size: 1.8rem;
+  font-family: "Open Sans", sans-serif;
+  padding: 0.2em 0.4em;
+  border: 1px solid rgb(158, 154, 154);
+  border-radius: 7px;
+  margin: {
+    bottom: 0.5em;
+  }
+}
+
+.label {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  text-align: center;
+  font-family: "Open Sans", cursive;
+  letter-spacing: 2px;
+  word-spacing: 4px;
+}
+
+/*
+==============
+buttons 
+==============
+*/
+.btn {
+  @include nones();
+  border: 1px solid rgb(141, 141, 141);
+  border-radius: 10px;
+  padding: 0.5em 1.5em;
+  color: black;
+  font-size: 1.2rem;
+  font-family: "Open Sans", sans-serif;
+  cursor: pointer;
+  background-color: beige;
+  transition: all ease-in-out 150ms;
+  box-shadow: 1px 1px rgba(0, 0, 0, 0.15), 0px 10px 0 -5px #eee,
+    0 10px 1px -4px rgba(0, 0, 0, 0.15), 0 20px 0 -10px #eee,
+    0 20px 1px -9px rgba(0, 0, 0, 0.15);
+  &:hover,
+  &:focus {
+    background-color: rgb(179, 173, 173);
+    color: white;
+  }
+  &:active {
+    transform: scale(0.95);
+    color: rgb(255, 255, 255);
+    box-shadow: none;
+  }
+}
+
+/*
+==============
+movie card 
+==============
+*/
+.movie-card-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2em;
+}
+
+.movie-card {
+  display: flex;
+  flex-direction: column;
+  margin: 0.5em 0.5em;
+  padding: 0.5em 0.5em;
+  color: rgb(75, 75, 75);
+  border: 1px solid rgba(221, 221, 221, 0.644);
+  border-radius: 5px;
+  box-shadow: 2px 2px 4px rgba(221, 221, 221, 1),
+    -2px 0px 4px rgba(221, 221, 221, 1);
+  transition: all ease-in-out 250ms;
+  p,
+  h3 {
+    margin: 0em;
+  }
+  &:hover {
+    box-shadow: none;
+    transform: rotate3d(0.3, 0.3, 0, 20deg) scale(0.97);
+    background-color: rgba(221, 221, 221, 0.644);
+  }
+  cursor: pointer;
+}
+
+.movie-card-image {
+  object-fit: contain;
+  border-radius: 5px;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-title {
+  text-transform: capitalize;
+  font-size: 2rem;
+}
